@@ -330,7 +330,7 @@ SMODS.Joker({
 		if context.discard and not context.blueprint then
 			if bcp.discardused <= bcp.discards then
 				bcp.discardused = bcp.discardused + 1
-			elseif bcp.discardused >= bcp.discards - 1 then
+			elseif bcp.discardused >= bcp.discards - 2 then
 				ease_dollars(-bcp.moneym)
 			end
 		end
