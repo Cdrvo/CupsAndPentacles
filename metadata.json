@@ -1,0 +1,15 @@
+{
+	"id": "Cups&Pentacles",
+	"name": "Cups & Pentacles",
+	"display_name": "Cups & Pentacles",
+	"author": ["Noir, CodeRevo"],
+	"description": "a Vanilla+ mod to spice up your gameplay and allow more fun and diverse gameplay",
+	"prefix": "bcp",
+	"main_file": "main.lua",
+	"priority": 0,
+	"version": "0.0.1",
+	"dependencies": ["Steamodded (>=1.0.0~ALPHA-0309c)"],
+	"badge_colour": "525252",
+	"badge_text_colour": "FFD700"
+
+}
