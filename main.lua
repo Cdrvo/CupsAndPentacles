@@ -14,6 +14,8 @@ SMODS.current_mod.optional_features = function()
     }
 end
 
+SMODS.optional_features.cardareas.unscored = true
+
 local igo = Game.init_game_object
 Game.init_game_object = function(self)
 	local ret = igo(self)
