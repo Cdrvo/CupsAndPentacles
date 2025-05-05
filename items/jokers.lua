@@ -1818,9 +1818,10 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if context.other_joker and context.other_card.ability.rarity == 0.97 then
+		if context.other_joker and context.other_joker.ability.rarity == 0.97 then
 			return{
-				chips = bcp.mult
+				chips = bcp.mult,
+				card = card
 			}
 		end
 	end,
