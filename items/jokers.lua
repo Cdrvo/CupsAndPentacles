@@ -1328,7 +1328,7 @@ SMODS.Joker({
 	key = "virus",
 	config = {
 		extra = {
-			xmult = 0.5,
+			xmultg = 0.5
 		},
 	},
 	rarity = 1,
@@ -1342,20 +1342,15 @@ SMODS.Joker({
 	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
-		if G and G.GAME and G.GAME.virussold then
-			return {
-				vars = {bcp.xmult, bcp.xmult*G.GAME.virussold, },
-			}
-		else
-			return{
-				vars = {bcp.xmult,bcp.xmult}
-			}
-		end
+		return{
+			vars = {bcp.xmultg, 1+G.GAME.soldvirus*bcp.xmultg}
+		}
 	end,
 	calculate = function(self, card, context)
+		local bcp = card.ability.extra
 		if context.joker_main then
 			return {
-				xmult = bcp.xmult*G.GAME.virussold,
+				xmult = 1+bcp.xmult*G.GAME.soldvirus,
 			}
 		end
 	end,
@@ -1761,8 +1756,7 @@ SMODS.Joker({
 	},
 	config = {
 		extra = {
-			rounds = 0,
-			maxrounds = 3
+			card = nil
 		},
 	},
 	loc_vars = function(self, info_queue, card)
@@ -1773,13 +1767,23 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if context.setting_blind and not G.GAME.blind.boss then
-			bcp.card = SMODS.add_card{
-				set = "Joker",
-			}
-		else bcp.card = nil
+		if context.setting_blind and not G.GAME.blind.boss and not context.blueprint then
+			SMODS.add_card{	set = "Joker" }
+			bcp.card = G.jokers.cards[#G.jokers.cards]
+			print(bcp.card)
+		else
+			bcp.card = nil
 		end
-		if context.end_of_round and bcp.card and not context.blueprint then
+		if context.end_of_round and not context.blueprint then
+			print(bcp.card)
+			card_eval_status_text(
+				card,
+				"extra",
+				nil,
+				nil,
+				nil,
+				{ message = "choppy chop", colour = G.C.MULT }
+			)
 			bcp.card:start_dissolve({HEX("57ecab")},nil, 1.6)
 		end
 	end,
