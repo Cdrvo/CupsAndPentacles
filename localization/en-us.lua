@@ -101,7 +101,7 @@ return {
 				name = "Sheen",
 				text = {
 					"After {C:attention}discarding{}",
-					"{X:mult,C:white}X#1#{}	m¡Mult in your",
+					"{X:mult,C:white}X#1#{}	Mult in your",
 					"next played hand",
 				},
 			},
@@ -214,7 +214,7 @@ return {
 			j_bcp_revolution = {
 				name = "Revolution",
 				text = {
-					"+{X:mult,C:white}X#1#{} Mult",
+					"{X:mult,C:white}X#1#{} Mult",
 					"{C:red,E:2}self destructs{} when",
 					"any {C:attention}joker{} is purchased",
 				},
@@ -222,7 +222,7 @@ return {
 			j_bcp_dreamjoker = {
 				name = "Dream Joker",
 				text = {
-					"Gains +{X:mult,C:white}X#1#{} Mult",
+					"Gains {X:mult,C:white}X#1#{} Mult",
 					"for each joker {C:attention}sold{}",
 					"this run",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
@@ -231,7 +231,7 @@ return {
 			j_bcp_virus = {
 				name = "Virus",
 				text = {
-					"Gains +{X:mult,C:white}X#1#{} Mult",
+					"Gains {X:mult,C:white}X#1#{} Mult",
 					"when this joker is sold",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
 				},
@@ -317,7 +317,10 @@ return {
 			j_bcp_happiness = {
 				name = "Happiness",
 				text = {
-					"Joker in progress :)",
+					"All played cards become {C:attention}debuffed{}",
+					"when scored, gives {X:mult,C:white}X#2#{} Mult",
+					"For each {C:attention}debuffed{} card in your {C:attention}full deck{}",
+					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",			
 				},
 			},
 			j_bcp_onomatopoeia = {
