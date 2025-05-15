@@ -364,7 +364,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = { card.ability.extra.xmult },
+			vars = { card.ability.extra.xmult, card.ability.extra.xmultg },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -413,7 +413,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = { card.ability.extra.odds },
+			vars = { (G.GAME.probabilities.normal or 1), bcp.odds },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -568,8 +568,8 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = { bcp.chips, bcp.chipsg },
-		}
+			vars = { bcp.mult, bcp.multg },
+		}	
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
@@ -701,7 +701,12 @@ SMODS.Joker({
 	},
 	loc_vars = function(self, info_queue, card)
 		return {
-			vars = { card.ability.extra.xmult, card.ability.extra.status },
+			vars = { 
+			card.ability.extra.chips, 
+			card.ability.extra.mult, 
+			card.ability.extra.chipsg, 
+			card.ability.extra.multg 
+			},
 		}
 	end,
 
@@ -796,7 +801,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_bonus
 		return {
-			vars = { card.ability.extra.chips * bonus() },
+			vars = { card.ability.extra.chips * bonus(), card.ability.extra.chips },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -850,7 +855,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		info_queue[#info_queue + 1] = G.P_CENTERS.m_mult
 		return {
-			vars = { card.ability.extra.mult * mults() },
+			vars = { card.ability.extra.mult * mults(), card.ability.extra.mult },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -893,11 +898,12 @@ SMODS.Joker({
 			return {
 				vars = {
 					(card.ability.extra.xmult + (G.GAME.consumeable_usage_total.spectral * card.ability.extra.xmultg)),
+					card.ability.extra.xmultg
 				},
 			}
 		else
 			return {
-				vars = { card.ability.extra.xmult },
+				vars = { card.ability.extra.xmult,card.ability.extra.xmultg },
 			}
 		end
 	end,
@@ -1216,7 +1222,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = {},
+			vars = {bcp.xmult, bcp.xmultg},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -1265,7 +1271,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = { bcp.xmul },
+			vars = { bcp.xmult },
 		}
 	end,
 	calculate = function(self, card, context)
@@ -1331,15 +1337,15 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		if G and G.GAME and G.GAME.virussold then
-		return {
-			vars = {G.GAME.virussold },
-		}
-	else
-		return{
-			vars = {bcp.xmult}
-		}
-	end
-end,
+			return {
+				vars = {bcp.xmult, bcp.G.GAME.virussold },
+			}
+		else
+			return{
+				vars = {bcp.xmult}
+			}
+		end
+	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
@@ -1353,10 +1359,10 @@ SMODS.Joker({
 	key = "gummyclowns",
 	config = {
 		extra = {
-			hands = 6,
+			hands = 8,
 		},
 	},
-	rarity = 1,
+	rarity = 3,
 	atlas = "wip",
 	blueprint_compat = true,
 	discovered = false,
@@ -1651,7 +1657,7 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if context.discard and next(context.poker_hands["Flush"]) and not context.blueprint then
+		if context.pre_discard and next(context.poker_hands["Flush"]) and not context.blueprint then
 			SMODS.add_card{
 				set = "Tarot"
 			}
@@ -1683,7 +1689,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = {},
+			vars = {bcp.rounds, bcp.maxrounds},
 		}
 	end,
 	calculate = function(self, card, context)
@@ -1732,7 +1738,6 @@ SMODS.Joker({
 		if context.setting_blind and not G.GAME.blind.boss then
 			bcp.card = SMODS.add_card{
 				set = "Joker",
-				legendary = true
 			}
 		else bcp.card = nil
 		end
@@ -1796,7 +1801,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "onomatopoeia",
 	atlas = "wip",
-	rarity = 3,
+	rarity = 1,
 	cost = 8,
 	unlocked = true,
 	discovered = false,
@@ -1833,7 +1838,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "sleeper",
 	atlas = "wip",
-	rarity = 1,
+	rarity = 2,
 	cost = 5,
 	unlocked = true,
 	discovered = false,
@@ -1885,7 +1890,7 @@ SMODS.Joker({
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = { bcp.mult },
+			vars = { bcp.xmult, bcp.xmultg },
 		}
 	end,
 	calculate = function(self, card, context)
