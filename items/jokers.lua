@@ -1465,7 +1465,7 @@ SMODS.Joker({
 	config = {
 		extra = {
 			mult = 0,
-			multg = 2
+			multg = 2,
 		},
 	},
 	loc_vars = function(self, info_queue, card)
@@ -1477,16 +1477,40 @@ SMODS.Joker({
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
 		if context.joker_main then
-			return{
+			return {
 				mult = bcp.mult
 			}
 		end
-		if context.individual and context.other_card:is_suit("Spades") then
-			return{
-				bcp.mult == bcp.mult + bcp.multg
-			}
-		else
-			bcp.mult = 0
+		if context.before then
+			hspade = false
+			hand = context.scoring_hand
+			for _, other_card in ipairs(hand) do
+				-- Note: At the time of creating this, other_card:is_suit("Spades") didn't work
+				if other_card.base.suit == "Spades" then
+					hspade = true
+				end
+			end
+			if hspade then
+				card_eval_status_text(
+					card,
+					"extra",
+					nil,
+					nil,
+					nil,
+					{ message = localize("k_upgrade_ex"), colour = G.C.MULT }
+				)
+				bcp.mult = bcp.mult + bcp.multg
+			else
+				card_eval_status_text(
+					card,
+					"extra",
+					nil,
+					nil,
+					nil,
+					{ message = localize("k_reset"), colour = G.C.EXTRA }
+				)
+				bcp.mult = 0
+			end
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
