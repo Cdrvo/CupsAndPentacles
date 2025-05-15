@@ -1328,7 +1328,7 @@ SMODS.Joker({
 	key = "virus",
 	config = {
 		extra = {
-			xmult = 1,
+			xmult = 0.5,
 		},
 	},
 	rarity = 1,
@@ -1878,7 +1878,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "tetrafobia",
 	atlas = "wip",
-	rarity = 1,
+	rarity = 3,
 	cost = 5,
 	unlocked = true,
 	discovered = false,
