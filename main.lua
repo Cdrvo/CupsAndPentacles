@@ -28,7 +28,7 @@ local igo = Game.init_game_object
 Game.init_game_object = function(self)
 	local ret = igo(self)
 	if next(SMODS.find_mod("Talisman")) then
-		ret.talismanb = 1
+		ret.talismab = 1
 	else
 		ret.talismanb = 0
 	end

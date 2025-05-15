@@ -695,8 +695,8 @@ SMODS.Joker({
 		extra = {
 			chips = 0,
 			mult = 0,
-			chipsg = 20,
-			multg = 4,
+			chipsg = 15,
+			multg = 3,
 		},
 	},
 	loc_vars = function(self, info_queue, card)
@@ -733,7 +733,7 @@ SMODS.Joker({
 SMODS.Joker({
 	key = "modernjoker",
 	atlas = "wip",
-	rarity = 2,
+	rarity = 1,
 	cost = 6,
 	unlocked = true,
 	discovered = false,
@@ -1783,12 +1783,13 @@ SMODS.Joker({
 	},
 	config = {
 		extra = {
+			xmultg = 0.05
 		},
 	},
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
 		return {
-			vars = {},
+			vars = {debuffed(), bcp.xmultg},
 		}
 	end,
 	calculate = function(self, card, context)
