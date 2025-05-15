@@ -1702,12 +1702,20 @@ SMODS.Joker({
 		local bcp = card.ability.extra
 		if context.end_of_round and bcp.rounds < bcp.maxrounds then
 			bcp.rounds = bcp.rounds + 1
-		elseif context.end_of_round then
-			card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
-			SMODS.add_card{
-				set = "Joker",
-				legendary = true
-			}
+		end
+		if context.selling_self and bcp.rounds >= bcp.maxrounds then
+						local jokers = {}
+			for i = 1, #G.jokers.cards do
+				if G.jokers.cards[i] ~= card then
+					jokers[#jokers + 1] = G.jokers.cards[i]
+				end
+			end
+			if #jokers > 0 then
+				if not context.blueprint then
+					local chosen_joker = pseudorandom_element(jokers, pseudoseed("ml"))
+					chosen_joker:set_edition({ negative = true }, true)
+				end
+			end
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
@@ -1794,6 +1802,9 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
+		if context.individual and context.cardarea == G.play then
+			SMODS.debuff_card(context.other_card, true, card.config.center.key)
+		end
 		if context.joker_main then
 			return{
 				xmult = debuffed()
