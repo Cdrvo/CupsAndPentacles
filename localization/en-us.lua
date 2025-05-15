@@ -35,25 +35,25 @@ return {
 					"{C:attention}highest{} ranked card played",
 				},
 			},
-            j_bcp_mathematician = {
+			j_bcp_mathematician = {
 				name = "Mathematician",
 				text = {
 					"{C:attention}Scoring{} number cards give {C:red}half",
-                     "their rank as {C:mult}Mult{} when scored",
+					"their rank as {C:mult}Mult{} when scored",
 					"{C:inactive}(2 = +1, 10 = +5, 7 = +3.5)",
 				},
 			},
-            j_bcp_bankruptcy = {
+			j_bcp_bankruptcy = {
 				name = "Bankruptcy",
 				text = {
 					"+4 discards but costs -$2 each discard past 3",
-                    "{C:inactive}(incomplete description)",
+					"{C:inactive}(incomplete description)",
 				},
 			},
 			j_bcp_astaroth = {
 				name = "Astaroth",
 				text = {
-					"This joker gains {X:mult,C:white}X#2#{} Mult", 
+					"This joker gains {X:mult,C:white}X#2#{} Mult",
 					"when each played {C:attention}6{} is scored",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
 				},
@@ -62,7 +62,7 @@ return {
 				name = "Las Vegas",
 				text = {
 					"Retrigger each played {C:attention}7{}",
-					"{C:green}#1# in #2#{} to retrigger it a second time"
+					"{C:green}#1# in #2#{} to retrigger it a second time",
 				},
 			},
 			j_bcp_candybag = {
@@ -77,9 +77,9 @@ return {
 				name = "Go Fish",
 				text = {
 					"{C:chips}+#2#{} Chips if {C:attention}played hand{}",
-					"is your most played{C:attention}poker hand{}", 
+					"is your most played{C:attention}poker hand{}",
 					"This joker gains {C:chips}+#1#{} Chips if {C:attention}played hand{}",
-					"is your most played{C:attention}poker hand{}", 
+					"is your most played{C:attention}poker hand{}",
 				},
 			},
 			j_bcp_cardrating = {
@@ -94,7 +94,7 @@ return {
 				name = "Bonanza",
 				text = {
 					"{C:mult}+#1#{} Mult for every",
-					"{C:chips}10{} Chips in score",	
+					"{C:chips}10{} Chips in score",
 				},
 			},
 			j_bcp_sheen = {
@@ -143,7 +143,7 @@ return {
 				text = {
 					"{X:mult,C:white}X#2#{} Mult per {C:spectral}spectral{} card",
 					" used this run",
-					"{C:inactive:}(Currently{} {X:mult,C:white}X#1#{} {C:inactive:}Mult){}"
+					"{C:inactive:}(Currently{} {X:mult,C:white}X#1#{} {C:inactive:}Mult){}",
 				},
 			},
 			j_bcp_primaessentia = {
@@ -217,6 +217,23 @@ return {
 					"+{X:mult,C:white}X#1#{} Mult",
 					"{C:red,E:2}self destructs{} when",
 					"any {C:attention}joker{} is purchased",
+				},
+			},
+			j_bcp_dreamjoker = {
+				name = "Dream Joker",
+				text = {
+					"Gains +{X:mult,C:white}X#1#{} Mult",
+					"for each joker {C:attention}sold{}",
+					"this run",
+					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
+				},
+			},
+			j_bcp_virus = {
+				name = "Virus",
+				text = {
+					"Gains +{X:mult,C:white}X#1#{} Mult",
+					"when this joker is sold",
+					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
 				},
 			},
 			j_bcp_gummyclowns = {
@@ -341,25 +358,25 @@ return {
 		Stake = {},
 		Tag = {},
 		Tarot = {},
-		Voucher = {}
-},
-    misc = {
-        achievement_descriptions={},
-        achievement_names={},
-        blind_states={},
-        challenge_names={},
-        collabs={},
-        dictionary={},
-        high_scores={},
-        labels={},
-        poker_hand_descriptions={},
-        poker_hands={},
-        quips={},
-        ranks={},
-        suits_plural={},
-        suits_singular={},
-        tutorial={},
-        v_dictionary={},
-        v_text={},
-    },
+		Voucher = {},
+	},
+	misc = {
+		achievement_descriptions = {},
+		achievement_names = {},
+		blind_states = {},
+		challenge_names = {},
+		collabs = {},
+		dictionary = {},
+		high_scores = {},
+		labels = {},
+		poker_hand_descriptions = {},
+		poker_hands = {},
+		quips = {},
+		ranks = {},
+		suits_plural = {},
+		suits_singular = {},
+		tutorial = {},
+		v_dictionary = {},
+		v_text = {},
+	},
 }

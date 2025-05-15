@@ -1305,9 +1305,15 @@ SMODS.Joker({
 	cost = 6,
 	loc_vars = function(self, info_queue, card)
 		local bcp = card.ability.extra
-		return {
-			vars = { bcp.xmult, bcp.xmult * (G.GAME.soldjokers or 1) },
-		}
+	if G and G.GAME and G.GAME.virussold then
+			return {
+				vars = {bcp.xmult, bcp.xmult*G.GAME.soldjokers, },
+			}
+		else
+			return{
+				vars = {bcp.xmult,bcp.xmult}
+			}
+		end
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
@@ -1338,18 +1344,18 @@ SMODS.Joker({
 		local bcp = card.ability.extra
 		if G and G.GAME and G.GAME.virussold then
 			return {
-				vars = {bcp.xmult, bcp.G.GAME.virussold },
+				vars = {bcp.xmult, bcp.xmult*G.GAME.virussold, },
 			}
 		else
 			return{
-				vars = {bcp.xmult}
+				vars = {bcp.xmult,bcp.xmult}
 			}
 		end
 	end,
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				xmult =  G.GAME.virussold,
+				xmult = bcp.xmult*G.GAME.virussold,
 			}
 		end
 	end,

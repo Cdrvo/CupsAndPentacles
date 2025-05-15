@@ -17,11 +17,12 @@ SMODS.Atlas{
 
 SMODS.current_mod.optional_features = function()
     return {
-        post_trigger = true
+        post_trigger = true,
+        cardareas = {
+            unscored = true
+        }
     }
 end
-
-SMODS.optional_features.cardareas.unscored = true
 
 local igo = Game.init_game_object
 Game.init_game_object = function(self)
