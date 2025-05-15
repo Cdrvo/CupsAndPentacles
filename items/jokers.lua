@@ -1386,7 +1386,7 @@ SMODS.Joker({
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
 		if context.final_scoring_step then
-			if #G.consumeables.cards < G.consumeables.config.card_limit or self.area == G.consumeables then
+			if #G.consumeables.cards+1 < G.consumeables.config.card_limit or self.area == G.consumeables then
 				bcp.hands = bcp.hands - 1
 				for i = 1, 2 do
 					SMODS.add_card({
