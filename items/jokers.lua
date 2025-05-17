@@ -1034,7 +1034,7 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		if not context.blueprint then
-			if context.selling_card and context.card.ability.set == "Joker" then
+			if context.selling_card and context.card.ability.set == "Joker" and context.card ~= card then
 				card.ability.extra_value = card.ability.extra_value + context.card.sell_cost
 				card:set_cost()
 				card_eval_status_text(
@@ -1122,6 +1122,7 @@ SMODS.Joker({
 	config = {
 		extra = {
 			chips = 80,
+			unscored = 0,
 		},
 	},
 	rarity = 1,
@@ -1148,7 +1149,7 @@ SMODS.Joker({
 		end
 		if context.joker_main and bcp.unscored >= 1 then
 			return {
-				chips = card.ability.extra.chips,
+				chips = bcp.chips,
 			}
 		end
 		if context.after then
@@ -1350,7 +1351,7 @@ SMODS.Joker({
 		local bcp = card.ability.extra
 		if context.joker_main then
 			return {
-				xmult = 1+bcp.xmult*G.GAME.soldvirus,
+				xmult = 1+bcp.xmultg*G.GAME.soldvirus,
 			}
 		end
 	end,
@@ -1551,13 +1552,9 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if hearts() >= 1 then
+		if context.joker_main then
 			return{
 				chips = bcp.chips*hearts()
-			}
-		else
-			return{
-				chips = bcp.chips
 			}
 		end
 	end,
@@ -1593,16 +1590,18 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if context.individual and context.other_card:is_suit("Clubs") and pseudorandom("theleprechaun") < bcp.odds / G.GAME.probabilities.normal and not context.blueprint then
-			bcp.xmult = bcp.xmult + bcp.xmultg
-			card_eval_status_text(
-				card,
-				"extra",
-				nil,
-				nil,
-				nil,
-				{ message = localize("k_upgrade_ex"), colour = G.C.MULT}
-			)
+		if context.individual and context.cardarea == G.play and not context.blueprint then
+			if context.other_card:is_suit("Clubs") and pseudorandom("theleprechaun") < G.GAME.probabilities.normal/bcp.odds then
+				bcp.xmult = bcp.xmult + bcp.xmultg
+				card_eval_status_text(
+					card,
+					"extra",
+					nil,
+					nil,
+					nil,
+					{ message = localize("k_upgrade_ex"), colour = G.C.MULT}
+				)
+			end
 		end
 		if context.joker_main then
 			return{
@@ -1647,10 +1646,8 @@ SMODS.Joker({
 			}
 		end
 		if context.end_of_round and context.main_eval and not context.blueprint then
-			ease_dollars(bcp.mdollars)
-		end
-		if context.starting_shop and not context.blueprint then
 			bcp.mdollars = bcp.mdollars + 1
+			ease_dollars(bcp.mdollars)
 		end
 	end,
 	in_pool = function(self, wawa, wawa2)
@@ -1904,7 +1901,7 @@ SMODS.Joker({
 	end,
 	calculate = function(self, card, context)
 		local bcp = card.ability.extra
-		if context.end_of_round and context.main_eval and G.GAME.blind.boss then
+		if context.end_of_round and context.main_eval and G.GAME.blind.boss and #G.consumeables.cards < G.consumeables.config.card_limit then
 			SMODS.add_card({
 				set = "Spectral",
 			})
