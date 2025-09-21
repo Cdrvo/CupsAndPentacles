@@ -6,7 +6,7 @@ return {
 		Enhanced = {},
 		Joker = {
 			j_bcp_overkill = {
-				name = "¡Overkill!",
+				name = "Overkill!",
 				text = {
 					"Earn {C:money}$#2#{} at end of round",
 					"if chips scored are at least",
@@ -24,11 +24,12 @@ return {
 				name = "Root Beer",
 				text = {
 					"Earn {C:money}$#1#{} at end of round,",
-					"reduces by {C:red}-$#2#{} when triggered",
+					"payout reduces by {C:red}-$#2#{}", 
+					"at the end of round",
 				},
 			},
 			j_bcp_frienshipispower = {
-				name = "Friendship Is Power",
+				name = "Friendship power",
 				text = {
 					"Scored cards give Chips",
 					"equal to {C:attention}double{} the",
@@ -38,22 +39,15 @@ return {
 			j_bcp_mathematician = {
 				name = "Mathematician",
 				text = {
-					"{C:attention}Scoring{} number cards give {C:red}half",
-					"their rank as {C:mult}Mult{} when scored",
+					"Scoring {C:attention}number{} cards give {C:attention}half",
+					"their rank as Mult when scored",
 					"{C:inactive}(2 = +1, 10 = +5, 7 = +3.5)",
-				},
-			},
-			j_bcp_bankruptcy = {
-				name = "Bankruptcy",
-				text = {
-					"+4 discards but costs -$2 each discard past 3",
-					"{C:inactive}(incomplete description)",
 				},
 			},
 			j_bcp_astaroth = {
 				name = "Astaroth",
 				text = {
-					"This joker gains {X:mult,C:white}X#2#{} Mult",
+					"This Joker gains {X:mult,C:white}X#2#{} Mult",
 					"when each played {C:attention}6{} is scored",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
 				},
@@ -62,7 +56,8 @@ return {
 				name = "Las Vegas",
 				text = {
 					"Retrigger each played {C:attention}7{}",
-					"{C:green}#1# in #2#{} to retrigger it a second time",
+					"{C:green}#1# in #2#{} chance to", 
+					"retrigger it a second time",
 				},
 			},
 			j_bcp_candybag = {
@@ -76,16 +71,16 @@ return {
 			j_bcp_gofish = {
 				name = "Go Fish",
 				text = {
-					"{C:chips}+#2#{} Chips if {C:attention}played hand{}",
-					"is your most played{C:attention}poker hand{}",
-					"This joker gains {C:chips}+#1#{} Chips if {C:attention}played hand{}",
-					"is your most played{C:attention}poker hand{}",
+					"{C:chips}+#1#{} Chips if played {C:attention} poker hand{}",
+					"is your most played {C:attention}poker hand{}",
+					"Increases by {C:chips}+#2#{} Chips if played {C:attention}poker hand{}",
+					"is your most played {C:attention}poker hand{}",
 				},
 			},
 			j_bcp_cardrating = {
 				name = "Card Rating",
 				text = {
-					"This joker gains {C:mult}+#2#{} Mult",
+					"This Joker gains {C:mult}+#2#{} Mult",
 					"for each {C:attention}10{} discarded",
 					"{C:inactive}(Currently{} {C:mult}+#1#{} {C:inactive}Mult){}",
 				},
@@ -101,7 +96,7 @@ return {
 				name = "Sheen",
 				text = {
 					"After {C:attention}discarding{}",
-					"{X:mult,C:white}X#1#{}	Mult in your",
+					"{X:mult,C:white}X#1#{} Mult in your",
 					"next played hand",
 				},
 			},
@@ -110,7 +105,7 @@ return {
 				text = {
 					"{C:chips}+#3#{} Chips and {C:mult}+#4#{} Mult",
 					"for every hand played this round",
-					"{C:inactive:}(Currently{} {C:chips}+#1#{} Chips and {C:mult}+#2#{} {C:inactive}Mult){}",
+					"{C:inactive:}(Currently{} {C:chips}+#1#{} {C:inactive}Chips and{} {C:mult}+#2#{} {C:inactive}Mult){}",
 				},
 			},
 			j_bcp_modernjoker = {
@@ -141,7 +136,7 @@ return {
 			j_bcp_spectrometer = {
 				name = "Spectrometer",
 				text = {
-					"{X:mult,C:white}X#2#{} Mult per {C:spectral}spectral{} card",
+					"{X:mult,C:white}X#2#{} Mult per {C:spectral}Spectral{} card",
 					" used this run",
 					"{C:inactive:}(Currently{} {X:mult,C:white}X#1#{} {C:inactive:}Mult){}",
 				},
@@ -166,16 +161,17 @@ return {
 				name = "Party Balloons",
 				text = {
 					"Adds {C:attention}sell value{} of",
-					"any sold {C:attention}joker{} to itself",
+					"any sold {C:attention}Joker{} to itself",
 					"as {C:attention}sell value{}",
 				},
 			},
 			j_bcp_emergencysquirrel = {
 				name = "Emergency Squirrel",
 				text = {
-					"Sell this joker in a {C:attention}blind{}",
+					"Sell this Joker in a {C:attention}blind{}",
 					"to generate a {C:attention}Squirrel{}",
-					"{C:inactive}(Squirrel: +30 Mult, self destructs at the end of round){}",
+					"{C:inactive}(+30 Mult, self destructs{}",
+					"{C:inactive}at the end of round){}",
 				},
 			},
 			j_bcp_squirrel = {
@@ -197,15 +193,16 @@ return {
 			j_bcp_eclipse = {
 				name = "Eclipse",
 				text = {
-					"Levels up another random{C:attention}poker hand{}",
+					"Levels up another random",
+					"{C:attention}poker hand{}",
 					"each time you use",
-					"a {C:planet}planet{} card",
+					"a {C:planet}Planet{} card",
 				},
 			},
 			j_bcp_hauntedhouse = {
 				name = "Haunted House",
 				text = {
-					"This joker gains{X:mult,C:white}X#2#{} Mult",
+					"This Joker gains {X:mult,C:white}X#2#{} Mult",
 					"if played hand contains",
 					"a {C:attention}Full House{}",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
@@ -216,30 +213,21 @@ return {
 				text = {
 					"{X:mult,C:white}X#1#{} Mult",
 					"{C:red,E:2}self destructs{} when",
-					"any {C:attention}joker{} is purchased",
-				},
-			},
-			j_bcp_dreamjoker = {
-				name = "Dream Joker",
-				text = {
-					"Gains {X:mult,C:white}X#1#{} Mult",
-					"for each joker {C:attention}sold{}",
-					"this run",
-					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
+					"any {C:attention}Joker{} is purchased",
 				},
 			},
 			j_bcp_virus = {
 				name = "Virus",
 				text = {
-					"Gains {X:mult,C:white}X#1#{} Mult",
-					"when this joker is sold",
+					"This Joker gains {X:mult,C:white}X#1#{} Mult",
+					"for each time it has been sold",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#2#{} {C:inactive}Mult){}",
 				},
 			},
 			j_bcp_gummyclowns = {
 				name = "Gummy Clowns",
 				text = {
-					"Create {C:attention}2{} {C:tarot}tarot{} cards",
+					"Create {C:attention}2{} {C:tarot}Tarot{} cards",
 					"when playing a hand",
 					"for the next {C:attention}#1#{} hands",
 				},
@@ -247,8 +235,7 @@ return {
 			j_bcp_betrayal = {
 				name = "Betrayal",
 				text = {
-					"{C:mult}+#1#{} Mult if played{C:attention}poker hand{}",
-					"played{C:attention}poker hand{}",
+					"{C:mult}+#1#{} Mult if played {C:attention}poker hand{}",
 					"is not your",
 					"most played {C:attention}poker hand{}",
 				},
@@ -256,10 +243,10 @@ return {
 			j_bcp_tengumask = {
 				name = "Tengu Mask",
 				text = {
-					"This joker gains {C:mult}+#2#{} Mult",
+					"This Joker gains {C:mult}+#2#{} Mult",
 					"per {C:attention}consecutive{} hand",
 					"played with a",
-					"scoring {C:spades}spade{} card",
+					"scoring {C:spades}Spade{} card",
 					"{C:inactive}(Currently{} {C:mult}+#1#{} {C:inactive}Mult){}",
 				},
 			},
@@ -267,31 +254,32 @@ return {
 				name = "Chupacabras Legend",
 				text = {
 					"Gives {C:chips}+#1#{} Chips for each",
-					"{C:hearts}heart{} card in your {C:attention}full deck{}",
+					"{C:hearts}Heart{} card in your {C:attention}full deck{}",
 					"{C:inactive}(Currently{} {C:chips}+#2#{} {C:inactive}Chips){}",
 				},
 			},
 			j_bcp_theleprechaun = {
 				name = "The Leprechaun",
 				text = {
-					"This joker has a",
+					"This Joker has a",
 					"{C:green}#4# in #3#{} chance to gain {X:mult,C:white}X#2#{} Mult",
-					"when each played {C:clubs}club{} is scored",
+					"when each played {C:clubs}Club{} is scored",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",
 				},
 			},
 			j_bcp_shinobi = {
 				name = "Shinobi",
 				text = {
-					"{C:mult}+#1#{} Mult",
-					"lose {C:red}$#2#{} at the end of round",
-					"increases by {C:attention}1{} each round",
+					"{C:mult}+#1#{} Mult, lose {C:red}-$#2#{}",
+					" at the end of round",
+					"cost increases",
+					"by {C:attention}1{} each round",
 				},
 			},
 			j_bcp_gbathroom = {
 				name = "G-bAthro0m",
 				text = {
-					"Creates a {C:tarot}tarot{} card",
+					"Creates a {C:tarot}Tarot{} card",
 					"if {C:attention}discarded{} poker hand",
 					"contains a {C:attention}flush{}",
 				},
@@ -301,16 +289,16 @@ return {
 				text = {
 					"After {C:attention}#2#{} rounds",
 					"sell this card to",
-					"add {C:dark_edition}negative{} to a random {C:attention}joker{}",
-					"(Joker in progress)",
+					"add {C:dark_edition}negative{} to a random {C:attention}Joker{}",
+					"{C:inactive}(Currently #1#/#2#){}",
 				},
 			},
 			j_bcp_sadness = {
 				name = "Sadness",
 				text = {
-					"When {C:attention}small blind{} or {C:attention}big blind{} are selected",
-					"Create a random {C:dark_edition}negative{} {C:attention}joker{}",
-					"and {C:red,E:2}destroy{} it at the end of round",
+					"When {C:attention}Small Blind{} or {C:attention}Big Blind{} is selected",
+					"Creates a random {C:dark_edition}negative{} {C:attention}Joker{}",
+					"and {C:red,E:2}destroys{} it at the end of round",
 					"(Joker in progress)",
 				},
 			},
@@ -318,7 +306,7 @@ return {
 				name = "Happiness",
 				text = {
 					"All played cards become {C:attention}debuffed{}",
-					"when scored, gives {X:mult,C:white}X#2#{} Mult",
+					"when played, gives {X:mult,C:white}X#2#{} Mult",
 					"For each {C:attention}debuffed{} card in your {C:attention}full deck{}",
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",			
 				},
@@ -326,15 +314,16 @@ return {
 			j_bcp_onomatopoeia = {
 				name = "Onomatopoeia",
 				text = {
-					"{C:blue}Common{} jokers",
+					"{C:blue}Common{} Jokers",
 					"each give {C:chips}+#1#{} Chips",
 				},
 			},
 			j_bcp_sleeper = {
 				name = "Sleeper",
 				text = {
-					"Create a{C:spectral}spectral{} card",
-					"When {C:attention}boss blind{} is defeated",
+					"Create a {C:spectral}Spectral{} card",
+					"When {C:attention}Boss Blind{} is defeated",
+					"{C:inactive}(Must have room){}",
 				},
 			},
 			j_bcp_tetrafobia = {
@@ -343,7 +332,7 @@ return {
 					"Each played {C:attention}4{}",
 					"gives {X:mult,C:white}X#1#{} Mult when scored",
 					"increases by {X:mult,C:white}X#2#{} Mult when",
-					"a {C:attention}four of a kind{} is played",
+					"a {C:attention}Four of a Kind{} is played",
 				},
 			},
 			j_bcp_cupsandpentacles = {
@@ -351,7 +340,7 @@ return {
 				text = {
 					"Earn {C:money}$#1#{} if all",
 					"cards held in hand",
-					"are {C:spades}spades{} or {C:clubs}clubs{}",
+					"are {C:hearts}Hearts{} or {C:diamonds}Diamonds{}",
 				},
 			},
 		},
