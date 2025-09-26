@@ -311,6 +311,15 @@ return {
 					"{C:inactive}(Currently{} {X:mult,C:white}X#1#{} {C:inactive}Mult){}",			
 				},
 			},
+			j_bcp_circusdog = {
+				name = "Circus Dog",
+				text = {
+					"When {C:attention}Blind{} is selected,",
+					"{C:green}#1# in #2#{} chance to add {C:enhanced}Foil{},",
+					"{C:enhanced}Holographic{} or {C:enhanced}Polychrome{} edition",
+					"to your rightmost {C:attention}Joker{}",
+				},
+			},
 			j_bcp_onomatopoeia = {
 				name = "Onomatopoeia",
 				text = {
