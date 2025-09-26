@@ -1766,6 +1766,40 @@ SMODS.Joker({
 })
 
 SMODS.Joker({
+	key="circusdog",
+	atlas = "wip",
+	rarity = 3,
+	cost = 6,
+	unlocked = true,
+	discovered = false,
+	blueprint_compat = true,
+	pos = {
+		x = 0,
+		y = 0,
+	},
+	config = {
+		extra = {
+			odds = 3,
+		},
+	},
+	loc_vars = function(self, info_queue, card)
+		local bcp = card.ability.extra
+		return {
+			vars = { (G.GAME.probabilities.normal or 1), bcp.odds },
+		}
+	end,
+	calculate = function(self, card, context)
+		local rightmost = G.jokers.cards[#G.jokers.cards]
+		local random_edition = poll_edition("random_seed", 1, true, true)
+		if context.setting_blind and rightmost then
+			if SMODS.pseudorandom_probability(rightmost, "circusdog", 1, card.ability.extra.odds) and not rightmost.edition then
+				rightmost:set_edition(random_edition)
+			end
+		end
+	end
+})
+
+SMODS.Joker({
 	key = "onomatopoeia",
 	atlas = "wip",
 	rarity = 1,
